@@ -25,13 +25,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('chart/get', [DashboardController::class, 'chartDataGet']);
 
  // auth route
-    Route::post('user-register', [AuthController::class, 'register']);
+Route::post('user-register', [AuthController::class, 'register']);
     Route::post('user-login', [AuthController::class, 'login']);
-    Route::get('mail-verify/{email}', [AuthController::class, 'mailVerify']);
-    Route::get('single-user/{uu_id}', [AuthController::class, 'getuser']);
-    Route::post('otp-verify', [AuthController::class, 'checkOtp']);
-    Route::get('otp-delete/{uu_id}', [AuthController::class, 'deleteOtp']);
-    Route::post('profile-update', [AuthController::class, 'profileUpdate']);
+    // Route::get('mail-verify/{email}', [AuthController::class, 'mailVerify']);
+    // Route::get('single-user/{uu_id}', [AuthController::class, 'getuser']);
+    // Route::post('otp-verify', [AuthController::class, 'checkOtp']);
+    // Route::get('otp-delete/{uu_id}', [AuthController::class, 'deleteOtp']);
+    // Route::post('profile-update', [AuthController::class, 'profileUpdate']);
 
 
     // Protected company routes
@@ -50,6 +50,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/admin/companies', [AdminController::class, 'getCompanies']);
     // Add other protected admin routes
 });
-
-
-

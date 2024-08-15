@@ -1,0 +1,132 @@
+###For General partners or Limited Partners
+
+###Singnup for Gp or Lp
+POST http://127.0.0.1:8000/api/user-register
+Content-Type: application/json
+
+
+{
+  "company_name": "NSiloy Pstl",
+  "website_url": "https://nSiloy.com",
+  "company_owner_name": "NSiloy Smith",
+  "company_email": "jane@nSiloy.com",
+  "password": "password456",
+  "status": "LP"
+}
+
+###Login for Gp or Lp
+POST http://localhost:8000/api/user-login
+Content-Type: application/json
+
+{
+  "company_email": "test@email.com",
+  "password": "123456"
+}
+
+###Forgot password for Gp or Lp
+POST http://localhost:8000/forgot-password
+Content-Type: application/json
+
+{
+  "company_email": "john@acme.com"
+}
+
+###Reset password for Gp or Lp
+POST http://localhost:8000/reset-password
+Content-Type: application/json
+
+{
+  "resetToken": "6d8a7f9c4b6e5c8e7d0f1b2a3c4d5e6f",
+  "newPassword": "newpassword123"
+}
+
+###Create fund profile
+POST http://localhost:8000/api/fund-profiles
+Content-Type: application/json
+Authorization: Bearer 4|qCQZ9U5gjzFdMwKTclwXu9mjKB0dNjHftbOAAYyuee6f81a0
+
+{
+  "type": "General partner",
+  "focused_sectors": ["technology", "healthcare"],
+  "fund_logo": "base64_encoded_image_data",
+  "headline": "Acme Ventures Fund",
+  "description_as_investor": "We invest in innovative technology startups.",
+  "target_geographics": [
+    {
+      "continent": "North America",
+      "countries": ["USA", "Canada"]
+    },
+    {
+      "continent": "Asia",
+      "countries": ["Bangladesh", "India"]
+    }
+  ],
+  "potential_added_value": ["strategic guidance", "industry connections"],
+  "asset_focus": ["seed", "early stage"],
+  "fund_maturity_focus": ["early stage", "growth stage"],
+  "venture_capital_fund_experience": "5-10 years",
+  "no_of_vc_fund": 2,
+  "investment_status": "actively investing",
+  "invest_amount_to_venture_capital": 50000000,
+  "timeframe": 5,
+  "check_size_range": {
+    "upper_limit": 500000,
+    "lower_limit": 100000
+  },
+  "ideal_check_size": 250000,
+  "last_fund_investment_date": "2023-03-01"
+}
+
+###Get fund profile
+GET http://localhost:8000/api/fund-profiles
+Authorization: Bearer 4|qCQZ9U5gjzFdMwKTclwXu9mjKB0dNjHftbOAAYyuee6f81a0
+
+###Update fund profile
+PUT http://localhost:8000/fund-profiles/<fund_profile_id>
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+  "headline": "Updated Acme Ventures Fund"
+}
+
+###Delete fund profile
+DELETE http://localhost:8000/fund-profiles/<fund_profile_id>
+Authorization: Bearer <token>
+
+###Admin Sign Up
+POST http://localhost:8000/admin/signup
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin123"
+}
+
+###Admin Login
+POST http://localhost:8000/admin/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin123"
+}
+
+###Get Companies
+GET http://localhost:8000/admin/companies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjYwOTExYzk3MmEyNDE2MTE4MzEyYzZkIiwiaWF0IjoxNzExODcwNDExLCJleHAiOjE3MTE4NzQwMTF9.JZ8RwBRyXB1dERz9TvsQbSdkOC6A_h2SgIi3YIB8BNY
+
+###Get General Parners
+GET http://localhost:8000/admin/general-partners
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjYwOTExYzk3MmEyNDE2MTE4MzEyYzZkIiwiaWF0IjoxNzExODcwNDExLCJleHAiOjE3MTE4NzQwMTF9.JZ8RwBRyXB1dERz9TvsQbSdkOC6A_h2SgIi3YIB8BNY
+
+###Get Limited Partners
+GET http://localhost:8000/admin/limited-partners
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjYwOTExYzk3MmEyNDE2MTE4MzEyYzZkIiwiaWF0IjoxNzExODcwNDExLCJleHAiOjE3MTE4NzQwMTF9.JZ8RwBRyXB1dERz9TvsQbSdkOC6A_h2SgIi3YIB8BNY
+
+###Get total partners from dashboard
+GET http://localhost:8000/admin/partner-counts
+
+### Get LP companies for a GP account
+GET http://localhost:8000/companies/limited-partners
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb21wYW55SWQiOiI2NjMzNTI0OWZmMGIwOWU1NDIxMjVlOWMiLCJpYXQiOjE3MTQ4OTY1NTIsImV4cCI6MTcxNDkwMDE1Mn0.O743EckbMhp4auYPs5wWdS5RnoUSX6xaHowuxtzEJ1g

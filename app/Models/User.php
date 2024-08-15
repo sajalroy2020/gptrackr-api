@@ -45,4 +45,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function fundProfiles()
+    {
+        return $this->hasMany(FundProfile::class, 'company_id');
+    }
 }

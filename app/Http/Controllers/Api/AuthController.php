@@ -19,12 +19,12 @@ class AuthController extends Controller{
     public function register(Request $request){
         try {
             $validatedData = Validator::make($request->all(), [
-                'company_email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:6'],
+                'first_name' => ['required', 'string'],
+                'last_name' => ['required', 'string'],
                 'company_name' => ['required', 'string'],
-                'website_url' => ['required', 'string'],
-                'company_owner_name' => ['required', 'string'],
-                'status' => ['required'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:6'],
+                'user_type' => ['required'],
             ])->validate();
         } catch (ValidationException $e) {
             return response()->json([
@@ -51,7 +51,7 @@ class AuthController extends Controller{
     public function login(Request $request){
         try {
             $credentials = $request->validate([
-                'company_email' => ['required', 'string', 'email'],
+                'email' => ['required', 'string', 'email'],
                 'password' => ['required', 'string', 'min:6'],
             ]);
         } catch (ValidationException $e) {

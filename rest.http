@@ -6,12 +6,12 @@ Content-Type: application/json
 
 
 {
+  "first_name": "Niloy",
+  "last_name": "Biswas",
   "company_name": "NSiloy Pstl",
-  "website_url": "https://nSiloy.com",
-  "company_owner_name": "NSiloy Smith",
-  "company_email": "jane@nSiloy.com",
-  "password": "password456",
-  "status": "LP"
+  "email": "jane@nSiloy.com",
+  "password": "123456",
+  "user_type": "GP"
 }
 
 ###Login for Gp or Lp
@@ -19,7 +19,7 @@ POST http://localhost:8000/api/user-login
 Content-Type: application/json
 
 {
-  "company_email": "test@email.com",
+  "email": "test@email.com",
   "password": "123456"
 }
 
@@ -43,7 +43,7 @@ Content-Type: application/json
 ###Create fund profile
 POST http://localhost:8000/api/fund-profiles
 Content-Type: application/json
-Authorization: Bearer 4|qCQZ9U5gjzFdMwKTclwXu9mjKB0dNjHftbOAAYyuee6f81a0
+Authorization: Bearer 3|qUHdSeD8RbAU58o1zRnrnjXGUxNoIV6f69v7tpdD34106ce7
 
 {
   "type": "General partner",
@@ -69,17 +69,19 @@ Authorization: Bearer 4|qCQZ9U5gjzFdMwKTclwXu9mjKB0dNjHftbOAAYyuee6f81a0
   "investment_status": "actively investing",
   "invest_amount_to_venture_capital": 50000000,
   "timeframe": 5,
-  "check_size_range": {
-    "upper_limit": 500000,
-    "lower_limit": 100000
-  },
+  "check_size_range_upper_limit": 500000,
+  "check_size_range_lower_limit": 100000,
   "ideal_check_size": 250000,
   "last_fund_investment_date": "2023-03-01"
 }
 
 ###Get fund profile
 GET http://localhost:8000/api/fund-profiles
-Authorization: Bearer 4|qCQZ9U5gjzFdMwKTclwXu9mjKB0dNjHftbOAAYyuee6f81a0
+Authorization: Bearer 1|CjB2bDRsgejQ9qXEPKWGjr1fXjF9xwUtZhVQ6bQL07611bac
+
+###Get All GP
+GET http://localhost:8000/api/general-partners
+Authorization: Bearer 4|7f6y7AFv8zHBJCZF5Uz5gyNY5IoRtdrm849ll8Zq19e8bd73
 
 ###Update fund profile
 PUT http://localhost:8000/fund-profiles/<fund_profile_id>

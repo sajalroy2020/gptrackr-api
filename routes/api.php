@@ -38,6 +38,7 @@ Route::post('user-register', [AuthController::class, 'register']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/fund-profiles', [FundProfileController::class, 'store']);
     Route::get('/fund-profiles', [FundProfileController::class, 'index']);
+    Route::get('/general-partners', [FundProfileController::class, 'getGeneralPartners']);
     // Add other protected routes
 });
 

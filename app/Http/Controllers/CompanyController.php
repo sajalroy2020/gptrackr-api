@@ -12,12 +12,12 @@ class CompanyController extends Controller
     public function signup(Request $request)
     {
         $validatedData = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
             'company_name' => 'required',
-            'website_url' => 'required|url',
-            'company_owner_name' => 'required',
-            'company_email' => 'required|email|unique:companies',
+            'email' => 'required|email|unique:companies',
             'password' => 'required|min:6',
-            'status' => 'required|in:GP,LP',
+            'user_type' => 'required|in:GP,LP',
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
@@ -49,5 +49,3 @@ class CompanyController extends Controller
         ]);
     }
 }
-
-

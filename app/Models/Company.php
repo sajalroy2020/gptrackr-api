@@ -10,12 +10,12 @@ class Company extends Authenticatable
     use HasFactory;
 
     protected $fillable = [
+        'first_name',
+        'last_name',
         'company_name',
-        'website_url',
-        'company_owner_name',
-        'company_email',
+        'email',
         'password',
-        'status',
+        'user_type',
     ];
 
     protected $hidden = [

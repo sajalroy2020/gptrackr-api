@@ -44,11 +44,11 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // Admin routes
-Route::post('/admin/signup', [AdminController::class, 'signup']);
 Route::post('/admin/login', [AdminController::class, 'login']);
 
 // Protected admin routes
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/admin/companies', [AdminController::class, 'getCompanies']);
+    Route::get('/admin/general-partners', [FundProfileController::class, 'getGeneralPartners']);
+    Route::get('/admin/limited-partners', [FundProfileController::class, 'getLimitedPartners']);
     // Add other protected admin routes
 });

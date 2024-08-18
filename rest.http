@@ -6,11 +6,11 @@ Content-Type: application/json
 
 
 {
-  "first_name": "Niloy",
+  "first_name": "Niloy2",
   "last_name": "Biswas",
-  "company_name": "NSiloy Pstl",
-  "email": "jane@nSiloy.com",
-  "password": "123456",
+  "company_name": "NSiloy2 Pstl",
+  "email": "jane2@nSiloy.com",
+  "password": "1234562",
   "user_type": "GP"
 }
 
@@ -77,7 +77,7 @@ Authorization: Bearer 3|qUHdSeD8RbAU58o1zRnrnjXGUxNoIV6f69v7tpdD34106ce7
 
 ###Get fund profile
 GET http://localhost:8000/api/fund-profiles
-Authorization: Bearer 1|CjB2bDRsgejQ9qXEPKWGjr1fXjF9xwUtZhVQ6bQL07611bac
+Authorization: Bearer 5|yHwvuSq38BILD1lUvIzH96mUd7Ylj3RRBrKIfKFbaca30dbd
 
 ###Get All GP
 GET http://localhost:8000/api/general-partners
@@ -96,23 +96,20 @@ Authorization: Bearer <token>
 DELETE http://localhost:8000/fund-profiles/<fund_profile_id>
 Authorization: Bearer <token>
 
-###Admin Sign Up
-POST http://localhost:8000/admin/signup
-Content-Type: application/json
 
-{
-  "email": "admin@example.com",
-  "password": "admin123"
-}
 
 ###Admin Login
-POST http://localhost:8000/admin/login
+POST http://localhost:8000/api/admin/login
 Content-Type: application/json
 
 {
   "email": "admin@example.com",
-  "password": "admin123"
+  "password": "password123"
 }
+
+###Get All GP
+GET http://localhost:8000/api/admin/general-partners
+Authorization: Bearer 50|jHqaC4lBkwgnp33eUTU65oJB3hogbDeRyIsx6jiV808944ce
 
 ###Get Companies
 GET http://localhost:8000/admin/companies
